@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct OpenAcademyProjectApp: App {
@@ -13,5 +14,6 @@ struct OpenAcademyProjectApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: Diary.self)
     }
 }

@@ -6,16 +6,38 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
-    @State var entryList: [Diary] = []
+    @Environment(\.modelContext) private var context
+    
+    @Query(sort: \Diary.date, order: .reverse) var entries: [Diary]
+
     @State var toggleSheet: Bool = false
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                ForEach(entryList) { entry in
-                    HomeEntryView(entry: entry)
+            ScrollView {
+                VStack {
+                    HStack {
+                        Text("My Diary")
+                            .largeTitleStyle()
+                            .padding()
+                        Spacer()
+                    }
+                    
+                    ForEach(entries) { entry in
+                        NavigationLink {
+                            EntryView(entry: entry)
+                        } label : {
+                            HomeEntryView(entry: entry)
+
+                        }
+                    }
                 }
+            }
+            .fullScreenCover(isPresented: $toggleSheet) {
+                AddEntryView()
             }
             .toolbar {
                 ToolbarItem (placement: .confirmationAction){
@@ -25,14 +47,11 @@ struct HomeView: View {
                         Image(systemName: "plus")
                     }
                 }
-            }
-            .fullScreenCover(isPresented: $toggleSheet) {
-                AddEntryView()
-            }
+            }            
         }
     }
 }
 
 #Preview {
-    HomeView(entryList: [])
+    HomeView()
 }

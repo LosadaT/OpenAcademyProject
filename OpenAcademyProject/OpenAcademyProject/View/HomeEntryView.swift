@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct HomeEntryView: View {
+    @Environment(\.modelContext) private var context
+
     var entry: Diary
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Text(entry.title)
+                .titleStyle()
+            
             Text(entry.date.formatted(date: .abbreviated, time: .omitted))
-            Divider()
+                .dateStyle()
+            
             Text(entry.text)
+                .textStyle()
         }
+        .padding()
+        .frame(width: 350)
+        .background()
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .shadow(radius: 2)
+        .padding(.horizontal)
     }
+}
+
+#Preview {
+    HomeEntryView(entry: Diary(date: Date(), text: "TesteTeste", title: "titulo"))
 }
