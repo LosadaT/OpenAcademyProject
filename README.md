@@ -1,9 +1,9 @@
 # OpenAcademyProject
-Este projeto é o resultados das aulas do curso da OpenAcademy de Tópicos Avançados de iOS. A ideia era fazer um diário utilizando pelo menos 3 dos assuntos apresentados nas aulas. <br>
+Este projeto é o resultados das aulas do curso da OpenAcademy de Tópicos Avançados de iOS. Desenvolvido em Swift e SwiftUI, para iOS 26, a ideia era fazer um diário utilizando pelo menos 3 dos assuntos apresentados nas aulas. <br>
 
 O Projeto consiste de quatro tela principais, a Home, onde o usuário consegue ver todas as entradas do diário, a página de adição, onde o usuário consegue adicionar novos relatos no diário, a página da entrada, onde é possível ver todos os detalhes do que o usuário fez no dia e a edição, onde é possível alterar alguma informação previamente colocada. <br>
 
-Além disso, com o uso do AppIntents, é possível criar uma entrada nova utilizando um Shortcut. Além do AppIntent, outras ferramentas utilizadas incluem o SwiftData e, para se adequar a proposta do projeeto, foram utilizadas extension, para os Text e Tasks, para carregar e atualizar as imagens.
+Além disso, com o uso do AppIntents, é possível criar uma entrada nova utilizando um Shortcut. Além do AppIntent, outras ferramentas utilizadas incluem o SwiftData e, para se adequar a proposta do projeto, foram utilizadas Tasks, para carregar e atualizar as imagens e extension, para criar novos estilo nos Texts.
 
 ### Home:
 <img src="Assets/home.png" alt="Home Screen" height="500">
