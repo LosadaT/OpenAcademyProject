@@ -42,14 +42,20 @@ struct AddEntryView: View {
                     HStack {
                         Spacer()
                         PhotosPicker("Select Image", selection: $pickerImage, matching: .images)
+                            .buttonStyle(.glass)
+                            .foregroundStyle(.accent)
                         Spacer()
                     }
                     
-                    if image != nil {
-                        Image(uiImage: UIImage(data: image!)!)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300, height: 300)
+                    HStack {
+                        Spacer()
+                        if image != nil {
+                            Image(uiImage: UIImage(data: image!)!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 300, height: 300)
+                        }
+                        Spacer()
                     }
                 }
                 .toolbar {
@@ -57,10 +63,16 @@ struct AddEntryView: View {
                         Button {
                             print("apertou")
                             context.insert(Diary(date: day, text: text, title: title, image: image))
-
                             dismiss()
                         } label: {
                             Image(systemName: "checkmark")
+                        }
+                    }
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
                         }
                     }
                 }

@@ -45,7 +45,7 @@ extension Text {
             .foregroundStyle(.black)
             .fontWeight(.regular)
             .font(.body)
-            .multilineTextAlignment(.center)
+            .multilineTextAlignment(.leading)
     }
     
     func dateStyle() -> some View {

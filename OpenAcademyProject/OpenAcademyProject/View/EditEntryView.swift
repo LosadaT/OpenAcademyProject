@@ -55,6 +55,8 @@ struct EditEntryView: View {
                     HStack {
                         Spacer()
                         PhotosPicker("Select Image", selection: $pickerImage, matching: .images)
+                            .buttonStyle(.glass)
+                            .foregroundStyle(.accent)
                         Spacer()
                     }
                     
@@ -67,6 +69,19 @@ struct EditEntryView: View {
                                 .frame(width: 300, height: 300)
                             Spacer()
                         }
+                    }
+                    HStack {
+                        Spacer()
+                        Button {
+                            context.delete(entry)
+                            try? context.save()
+                            dismiss()
+                        } label: {
+                            Text("Apagar")
+                                .foregroundStyle(.red)
+                        }
+                        .buttonStyle(.glass)
+                        Spacer()
                     }
                 }
             }
@@ -92,8 +107,8 @@ struct EditEntryView: View {
                         
                         try? context.save()
                         dismiss()                    } label: {
-                        Image(systemName: "checkmark")
-                    }
+                            Image(systemName: "checkmark")
+                        }
                 }
             }
             .onChange(of: pickerImage) {

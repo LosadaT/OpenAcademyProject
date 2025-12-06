@@ -14,7 +14,7 @@
 		0BFD38582EE32792006FF1C4 /* Exceptions for "OpenAcademyProject" folder in "OpenAcademyProject" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				App/Info.plist,
+				Info.plist,
 			);
 			target = 0BE3AFA82EE07BF60032B33F /* OpenAcademyProject */;
 		};
